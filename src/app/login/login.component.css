@@ -1,0 +1,45 @@
+.containerLogin{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    height: 230px;
+    background-color: white;
+    justify-content: space-between;
+    border-radius: 10px;
+    padding: 10px;
+    padding-left: 15px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),
+        0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+}
+
+.wasClicked{
+   background-color: red;
+}
+button{
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background: #668ad8;
+    color: #FFF;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    border-bottom: solid 4px #627295;
+    border-radius: 3px;
+}
+button:active {
+    -ms-transform: translateY(4px);
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);
+    border-bottom: none;
+}
+.enregistrement, .form-group, .connexion {
+    padding-left: 30px;
+}
+
+

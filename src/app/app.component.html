@@ -1,0 +1,10 @@
+<div class="container">
+  <span class="title">{{ title }}</span>
+  <div class="connexion">
+      <app-login (onLoginSucceed)="handleLoginSucceed($event)"></app-login>
+  </div>
+  <div class="contentList">
+      <app-list [loginInfo]="loginInfo"></app-list>
+  </div>
+</div>
+

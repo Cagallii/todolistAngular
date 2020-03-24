@@ -1,0 +1,24 @@
+<div class="containerLogin">
+    <form>
+        <div class="enregistrement">
+          <label for="identifiant">Identifiant</label>
+          <input class="form-control" [(ngModel)]="user.username" name="username" placeholder="Entrez votre identifiant">
+        </div>
+        <div class="form-group">
+          <label for="passeword">Mot de passe</label>
+          <input class="form-control" [(ngModel)]="user.password" type="password" name="password" placeholder="Entrez votre mot de passe">
+        </div>
+        <button type="submit" (click)="createCount()" class="btn btn-primary">S'enregistrer</button>
+    </form>
+    <form>
+        <div class="connexion">
+          <label for="identifiant">Identifiant</label>
+          <input class="form-control" [(ngModel)]="user.username" placeholder="Entrez votre identifiant" name="login">
+        </div>
+        <div class="form-group">
+          <label for="password">Mot de passe</label>
+          <input name="password" [(ngModel)]="user.password" type="password" class="form-control" placeholder="Entrez votre mot de passe">
+        </div>
+        <button type="submit" (click)="login()" class="btn btn-primary">Connexion</button>
+    </form>
+  </div>
