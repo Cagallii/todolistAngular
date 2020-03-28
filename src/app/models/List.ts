@@ -6,5 +6,5 @@ export class Item {
 export default class List {
     public _id : string;
     public name : string;
-    public items: string[];
+    public items: Item[];
   }

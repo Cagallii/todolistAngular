@@ -48,15 +48,27 @@ export class ListComponent implements OnInit {
     this.listServices.deleteList(idList, this.loginInfo).subscribe();
   }
 
- /* deleteItem(idList: string, idItem: string){
+  deleteItem(idList: string, idItem: string){
     const foundList = this.data.find(
-      list => list.id === idList
+      list => list._id === idList
     );
     const filteredElements = foundList.items.filter(
-      item => item.id !== idItem
+      item => item._id !== idItem
     );
     
-  }*/
+    const filteredLists = this.data.filter(
+      list => list._id !== idList
+    );
+
+    foundList.items = filteredElements;
+
+    this.data = [foundList,...filteredLists];
+    
+    const dataItem = {name : foundList.name, items: foundList.items};
+
+    this.listServices.updateList(dataItem, idList, this.loginInfo).subscribe();
+        
+  }
   
   addItem(idList: string, index: number) {
     const item = new Item();
@@ -65,9 +77,8 @@ export class ListComponent implements OnInit {
     const foundList = this.data.find(
       list => list._id === idList
     );
-    foundList.items.push(this.addInputValues);
+    foundList.items.push(item);
     const dataItem = {name : foundList.name, items: foundList.items};
-    //this.addInputValues = "";
 
     const filteredLists = this.data.filter(
       list => list._id !== idList
@@ -76,5 +87,7 @@ export class ListComponent implements OnInit {
     this.data = [foundList,...filteredLists];
     
     this.listServices.updateList(dataItem, idList, this.loginInfo).subscribe();
-}
+
+    this.addInputValues = "";
+  }
 }
