@@ -1,4 +1,4 @@
-export class items {
+export class Item {
     public id : string;
     public text : string;
 }
