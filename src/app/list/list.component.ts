@@ -12,7 +12,7 @@ export class ListComponent implements OnInit {
   @Input() loginInfo: any;
   data: List[];
   filteredLists:any;
-  addInputValues: any = [];
+  addInputValues: any;
   addListInputValue: any;
 
   constructor(
@@ -42,7 +42,7 @@ export class ListComponent implements OnInit {
 
   deleteList(idList: string){
     this.filteredLists = this.data.filter(
-      list => list.id !== idList);
+      list => list._id !== idList);
       this.data = this.filteredLists;      
     
     this.listServices.deleteList(idList, this.loginInfo).subscribe();
@@ -56,20 +56,25 @@ export class ListComponent implements OnInit {
       item => item.id !== idItem
     );
     
-  }
+  }*/
   
   addItem(idList: string, index: number) {
     const item = new Item();
     item.text = this.addInputValues;
     
     const foundList = this.data.find(
-      list => list.id === idList
+      list => list._id === idList
     );
-    foundList.items.push(this.addInputValues[index]);
-    this.addInputValues = "";
+    foundList.items.push(this.addInputValues);
+    const dataItem = {name : foundList.name, items: foundList.items};
+    //this.addInputValues = "";
 
-    this.listServices.updateList(idList, this.loginInfo).subscribe(createdItem => {
-     
-    });
-  }*/
+    const filteredLists = this.data.filter(
+      list => list._id !== idList
+    );
+
+    this.data = [foundList,...filteredLists];
+    
+    this.listServices.updateList(dataItem, idList, this.loginInfo).subscribe();
+}
 }

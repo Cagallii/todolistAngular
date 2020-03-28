@@ -43,7 +43,7 @@ export class ListServices {
     return this.http.delete<any>(`https://todolist-yuzu.herokuapp.com/api/list/${listID}`, httpOptions);
   }
 
-  updateList (listId: string, tokenUser): Observable<List> {
+  updateList (dataItem: any, listId: string, tokenUser): Observable<List> {
     const headers: HttpHeaders = new HttpHeaders({
       tokenUser: tokenUser    
     });
@@ -51,7 +51,7 @@ export class ListServices {
     const httpOptions = {
       headers: headers
     };
-    return this.http.put<List>(`https://todolist-yuzu.herokuapp.com/api/list/${listId}`, httpOptions)
+    return this.http.put<List>(`https://todolist-yuzu.herokuapp.com/api/list/${listId}`, dataItem, httpOptions)
    
   }
 }

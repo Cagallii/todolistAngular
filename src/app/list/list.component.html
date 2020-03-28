@@ -8,16 +8,16 @@
     <div *ngFor="let list of data, let i = index" class="lists">
       <div class="lign-title-list">
         <div class="title-list">{{ list.name }}</div>
-        <button class="deleteButton" (click)="deleteList(list.id)"> X </button>
+        <button class="deleteButton" (click)="deleteList(list._id)"> X </button>
       </div>
       <ul>
         <li *ngFor="let item of list.items" class="list-group-item">{{ item.text }}<button
-            class="deleteButton" (click)="deleteItem(list.id, item.id)"> X </button>
+            class="deleteButton" (click)="deleteItem(list._id, item._id)"> X </button>
         </li>
       </ul>
       <div class="addElement">
-        <input type="text" [(ngModel)]="addInputValues[i]" class="form-control"/>
-        <button (click)="addItem(list.id, i)" class="addButton"> + </button>
+        <input type="text" [(ngModel)]="addInputValues" class="form-control"/>
+        <button (click)="addItem(list._id, i)" class="addButton"> + </button>
       </div>
     </div>
   </div>
